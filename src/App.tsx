@@ -76,7 +76,7 @@ export const App = () => {
   }, []);
 
   const submit = () => {
-    window.gtag('event', '6532_add_var2');
+    window.gtag('event', '6832_card_activate', { var: 'var3' });
 
     setLoading(true);
 
@@ -220,7 +220,7 @@ export const App = () => {
           <div style={{ marginTop: '1rem' }} key={index}>
             <div
               onClick={() => {
-                window.gtag('event', `6532_FAQ${index + 1}_var2`);
+                window.gtag('event', '6832_card_faq', { faq: String(index + 1), var: 'var3' });
 
                 setCollapsedItem(items =>
                   items.includes(String(index + 1))
