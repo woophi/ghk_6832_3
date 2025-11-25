@@ -1,13 +1,14 @@
 import { ButtonMobile } from '@alfalab/core-components/button/mobile';
 import { Collapse } from '@alfalab/core-components/collapse';
 import { Gap } from '@alfalab/core-components/gap';
-import { List } from '@alfalab/core-components/list';
 import { PureCell } from '@alfalab/core-components/pure-cell';
 import { Typography } from '@alfalab/core-components/typography';
+import { BubblesMIcon } from '@alfalab/icons-glyph/BubblesMIcon';
 import { BulbMIcon } from '@alfalab/icons-glyph/BulbMIcon';
 import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
 import { ChevronUpMIcon } from '@alfalab/icons-glyph/ChevronUpMIcon';
 import { CrownMIcon } from '@alfalab/icons-glyph/CrownMIcon';
+import { HeartMIcon } from '@alfalab/icons-glyph/HeartMIcon';
 import { LightningMIcon } from '@alfalab/icons-glyph/LightningMIcon';
 import { useEffect, useState } from 'react';
 import hb from './assets/hb.png';
@@ -18,22 +19,29 @@ import { appSt } from './style.css';
 
 const items = [
   {
-    title: 'Ранний доступ к идеям и сигналам',
-    text: [
-      'Push-уведомления по рыночным событиям за 30-60 минут до остальных пользователей',
-      'Сигналы с уровнями входа и выхода, базой аналитики',
-    ],
+    title: 'Доступ в закрытый чат с инвестидеями',
+    text: 'Каждый день новые идеи',
+    IconComp: BubblesMIcon,
+  },
+  {
+    title: 'Еженедельный дайджест событий на рынке',
+    text: 'Полный разбор рынка в удобном формате',
     IconComp: BulbMIcon,
   },
   {
-    title: 'Приоритетная поддержка',
-    text: 'Любой вопрос в чатах Альфа Инвестиций решится быстрее',
+    title: 'AI стратегия для инвесторов с доходностью >25% в год',
+    text: 'Все рекомендации можно исполнить в 1 клик — покупки и продажи выполняются автоматически',
     IconComp: CrownMIcon,
+  },
+  {
+    title: 'Приоритетная поддержка',
+    text: 'Любой вопрос в чатах Альфа Инвестиций решится быстрее и без ботов',
+    IconComp: LightningMIcon,
   },
   {
     title: 'Ранний доступ к обновлениям',
     text: 'Для приложений Альфа Инвестиции и Альфа Инвестиции Онлайн',
-    IconComp: LightningMIcon,
+    IconComp: HeartMIcon,
   },
 ];
 
@@ -171,21 +179,9 @@ export const App = () => {
                   {item.title}
                 </Typography.Text>
 
-                {typeof item.text === 'string' ? (
-                  <Typography.Text view="primary-small" color="secondary-inverted">
-                    {item.text}
-                  </Typography.Text>
-                ) : (
-                  <List tag="ul" marker="•">
-                    {item.text.map((answer, ansIndex) => (
-                      <List.Item className={appSt.listItem} key={ansIndex}>
-                        <Typography.Text view="primary-small" color="secondary-inverted">
-                          {answer}
-                        </Typography.Text>
-                      </List.Item>
-                    ))}
-                  </List>
-                )}
+                <Typography.Text view="primary-small" color="secondary-inverted">
+                  {item.text}
+                </Typography.Text>
               </PureCell.Main>
             </PureCell.Content>
           </PureCell>
